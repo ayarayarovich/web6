@@ -37,11 +37,11 @@
     "checkboxes": {
       "jalapeno": {
         "description": "Халапухи",
-        "price": 20
+        "price": 30
       },
       "pickled_cucumbers": {
         "description": "Маринованные огурцы",
-        "price": 20
+        "price": 30
       }
     }
   },
@@ -81,21 +81,21 @@
       }
     }
   },
-  "pizza": {
+  "giros": {
     "description": "Гирос",
     "price": 300,
     "checkboxes": {
       "jalapeno": {
         "description": "Халапухи",
-        "price": 50
+        "price": 30
       },
       "pickled_cucumbers": {
         "description": "Маринованные огурцы",
-        "price": 50
+        "price": 30
       },
       "mustard": {
         "description": "Горчица",
-        "price": 20
+        "price": 30
       },
       "french_fries": {
         "description": "Картошка фри",
