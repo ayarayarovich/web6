@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web 5</title>
+
+    <link rel="shortcut icon" type="image/jpg" href="/static/ball.png"/>
+    <script defer src="/static/index.js"></script>
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="content">
+
+    <div class="container">
+        <div class="row min-vh-100 align-content-center">
+            <div class="offset-1 col-10">
+                <div class="card shadow p-4 p-md-5">
+                    <p class="display-6 text-center mb-5">Шаурмечный рай!</p>
+
+                    <form id="calculatorForm">
+
+                        <div class="mb-3">
+                            <label for="calculator__meal" class="form-label">Выберите, что желаете</label>
+                            <select class="form-select" name="meal" id="calculator__meal"></select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="calculator__amount" class="form-label">Количество</label>
+                            <input type="number" class="form-control" id="calculator__amount" name="amount" min="1" step="1" value="1">
+                        </div>
+
+                        <div class="mb-3" id="calculator__radios">
+                        </div>
+
+                        <div class="mb-3" id="calculator__checkboxes">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-text">&#8381;</span>
+                            <input type="number" class="form-control" readonly id="calculator__finalCost">
+                            <button type="submit" class="btn btn-dark">Оформить заказ</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="bg-canvas" class="canvas"></div>
+
+</body>
+</html>

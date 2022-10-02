@@ -1,0 +1,106 @@
+{
+  "shawarma": {
+    "description": "Шаурма",
+    "price": 180,
+    "radios": {
+      "size": {
+        "description": "Размер",
+        "required": true,
+        "default": "normal",
+        "choices": {
+          "normal": {
+            "description": "Стандартная (400 г.)",
+            "price": 0
+          },
+          "big": {
+            "description": "Большая (550 г.)",
+            "price": 30
+          }
+        }
+      },
+      "pita": {
+        "description": "Лаваш",
+        "required": true,
+        "default": "normal",
+        "choices": {
+          "normal": {
+            "description": "Обычный",
+            "price": 0
+          },
+          "cheese": {
+            "description": "Сырный",
+            "price": 30
+          }
+        }
+      }
+    },
+    "checkboxes": {
+      "jalapeno": {
+        "description": "Халапухи",
+        "price": 20
+      },
+      "pickled_cucumbers": {
+        "description": "Маринованные огурцы",
+        "price": 20
+      }
+    }
+  },
+  "burger": {
+    "description": "Донер",
+    "price": 200,
+    "radios": {
+      "size": {
+        "description": "Размер",
+        "required": true,
+        "default": "normal",
+        "choices": {
+          "normal": {
+            "description": "Стандартный (350 г.)",
+            "price": 0
+          },
+          "big": {
+            "description": "Большой (500 г.)",
+            "price": 50
+          }
+        }
+      },
+      "burger_bun": {
+        "description": "Мясо",
+        "required": true,
+        "default": "normal",
+        "choices": {
+          "normal": {
+            "description": "Курица",
+            "price": 0
+          },
+          "dark": {
+            "description": "Говядина",
+            "price": 50
+          }
+        }
+      }
+    }
+  },
+  "pizza": {
+    "description": "Гирос",
+    "price": 300,
+    "checkboxes": {
+      "jalapeno": {
+        "description": "Халапухи",
+        "price": 50
+      },
+      "pickled_cucumbers": {
+        "description": "Маринованные огурцы",
+        "price": 50
+      },
+      "mustard": {
+        "description": "Горчица",
+        "price": 20
+      },
+      "french_fries": {
+        "description": "Картошка фри",
+        "price": 50
+      }
+    }
+  }
+}
