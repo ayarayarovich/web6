@@ -84,6 +84,7 @@ function renderCheckboxBlock(checkboxes) {
 
 function renderForm(meal) {
     return new Promise((resolve, reject) => {
+        document.querySelector("#calculator__amount").value = 1;
         document.querySelector("#calculator__radios").innerHTML = renderRadios(meal.radios);
         document.querySelector("#calculator__checkboxes").innerHTML = renderCheckboxBlock(meal.checkboxes);
         renderFinalCost(meal);
