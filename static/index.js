@@ -86,9 +86,12 @@ function renderForm(meal) {
         document.querySelector("#calculator__checkboxes").innerHTML = renderCheckboxBlock(meal.checkboxes);
         renderFinalCost(meal);
 
-        document.querySelectorAll("#calculator__radios input, #calculator__checkboxes input, #calculator__amount").forEach((input) => {
-            input.addEventListener("change", () => renderFinalCost(meal));
+        const onInputsUpdate = () => renderFinalCost(meal);
+
+        document.querySelectorAll("#calculator__radios input, #calculator__checkboxes input").forEach((input) => {
+            input.addEventListener("change", onInputsUpdate);
         });
+        document.querySelector("#calculator__amount").addEventListener("input", onInputsUpdate);
 
         resolve();
     });
