@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderForm(menu[e_mealTypeSelector.value]).then(() => {
         const card = document.querySelector("#card");
-        card.style.opacity = '1';
+        card.classList.add("opacity-100");
     });
 
     setTimeout(() => {
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadImage("https://www.grandactive.ru/UploadedFiles/2021/2021-02/c809089d-ca27-41a0-8a5f-d592a60cedbe.jpg").then(function(src) {
        e_bgCanvas.style.backgroundImage = `url(${src})`;
        setTimeout(function() {
-           e_bgCanvas.style.opacity = '1';
+           e_bgCanvas.classList.add("opacity-100");
        }, 500)
     });
 
