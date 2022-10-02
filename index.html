@@ -17,32 +17,45 @@
 
     <div class="container">
         <div class="row min-vh-100 align-content-center">
-            <div class="offset-1 col-10">
-                <div class="card shadow p-4 p-md-5">
+            <div class="col-12 offset-lg-3 col-lg-6">
+                <div class="card shadow p-4 p-md-5 bg-blur" id="card">
                     <p class="display-6 text-center mb-5">Шаурмечный рай!</p>
 
                     <form id="calculatorForm">
 
-                        <div class="form-floating mb-3">
-                            <select class="form-select" name="meal" id="calculator__meal"></select>
-                            <label for="calculator__meal" class="form-label">Выберите, что желаете</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="calculator__amount" name="amount" min="1" step="1" value="1" placeholder="Количество">
-                            <label for="calculator__amount" class="form-label">Количество</label>
+                        <div class="row mb-3">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" name="meal" id="calculator__meal"></select>
+                                    <label for="calculator__meal" class="form-label">Выберите, что желаете</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control bg-blur" id="calculator__amount" name="amount" min="1" step="1" value="1" placeholder="Количество">
+                                    <label for="calculator__amount" class="form-label">Количество</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3" id="calculator__radios">
                         </div>
 
-                        <div class="mb-3" id="calculator__checkboxes">
+                        <div class="mb-4" id="calculator__checkboxes">
                         </div>
 
-                        <div class="input-group">
-                            <span class="input-group-text">&#8381;</span>
-                            <input type="number" class="form-control" readonly id="calculator__finalCost">
-                            <button type="submit" class="btn btn-dark">Оформить заказ</button>
+                        <div class="mb-3 fs-4">
+                            <div class="row justify-content-between">
+                                <div class="col-auto"><span class=>Всего:</span></div>
+                                <div class="col-auto"><span id="calculator__finalCost"></span><span> ₽</span></div>
+                            </div>
+                        </div>
+
+
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-outline-primary mx-auto">Оформить заказ</button>
+                            </div>
                         </div>
 
                     </form>

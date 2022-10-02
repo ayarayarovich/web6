@@ -1,7 +1,7 @@
 function calcWithAddons (initialPrice) {
     let cost = initialPrice;
     let e_amount = document.querySelector("#calculator__amount");
-    let amount = parseInt(e_amount.value);
+    let amount = parseInt(e_amount.value) || 0;
     const e_checkedInputs = document.querySelectorAll("#calculatorForm input:checked");
     e_checkedInputs.forEach((e_checkedInput) => {
         cost += parseInt(e_checkedInput.dataset.price);
@@ -11,7 +11,7 @@ function calcWithAddons (initialPrice) {
 
 function renderFinalCost(meal) {
     const e_finalCost = document.querySelector("#calculator__finalCost");
-    e_finalCost.value = calcWithAddons(meal.price);
+    e_finalCost.innerHTML = calcWithAddons(meal.price);
 }
 
 function renderRadios(radios) {
@@ -81,18 +81,32 @@ function renderCheckboxBlock(checkboxes) {
 }
 
 function renderForm(meal) {
-    document.querySelector("#calculator__finalCost").value = meal.price;
-    document.querySelector("#calculator__radios").innerHTML = renderRadios(meal.radios);
-    document.querySelector("#calculator__checkboxes").innerHTML = renderCheckboxBlock(meal.checkboxes);
+    return new Promise((resolve, reject) => {
+        document.querySelector("#calculator__radios").innerHTML = renderRadios(meal.radios);
+        document.querySelector("#calculator__checkboxes").innerHTML = renderCheckboxBlock(meal.checkboxes);
+        renderFinalCost(meal);
 
-    document.querySelectorAll("#calculator__radios input, #calculator__checkboxes input, #calculator__amount").forEach((input) => {
-        input.addEventListener("change", () => renderFinalCost(meal));
+        document.querySelectorAll("#calculator__radios input, #calculator__checkboxes input, #calculator__amount").forEach((input) => {
+            input.addEventListener("change", () => renderFinalCost(meal));
+        });
+
+        resolve();
+    });
+}
+
+function loadImage(src) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.src = src;
+        image.addEventListener('load', () => resolve(image.src));
+        image.addEventListener('error', reject);
     });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
 
     const e_mealTypeSelector = document.querySelector("#calculator__meal");
+    const e_bgCanvas = document.querySelector("#bg-canvas");
 
     const menu = await (await fetch("/menu.json")).json();
 
@@ -100,7 +114,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         e_mealTypeSelector.innerHTML += `<option value="${mealType}">${meal.description} - ${meal.price} руб.</option>`
     }
 
-    renderForm(menu[e_mealTypeSelector.value]);
+    renderForm(menu[e_mealTypeSelector.value]).then(() => {
+        const card = document.querySelector("#card");
+        card.style.opacity = '1';
+    });
+
+    setTimeout(() => {
+        document.querySelector("#card").classList.add("vanishIn");
+    }, 1000);
+
+
+    loadImage("https://anyreasonvegans.com/wp-content/uploads/2019/07/CFF63176-7EF7-4502-BB95-94ABA81D3703.jpeg").then(function(src) {
+       e_bgCanvas.style.backgroundImage = `url(${src})`;
+       setTimeout(function() {
+           e_bgCanvas.style.opacity = '1';
+       }, 500)
+    });
+
     e_mealTypeSelector.addEventListener("change", () => {
         renderForm(menu[e_mealTypeSelector.value]);
     });
