@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, 1000);
 
 
-    loadImage("https://anyreasonvegans.com/wp-content/uploads/2019/07/CFF63176-7EF7-4502-BB95-94ABA81D3703.jpeg").then(function(src) {
+    loadImage("https://www.grandactive.ru/UploadedFiles/2021/2021-02/c809089d-ca27-41a0-8a5f-d592a60cedbe.jpg").then(function(src) {
        e_bgCanvas.style.backgroundImage = `url(${src})`;
        setTimeout(function() {
            e_bgCanvas.style.opacity = '1';
