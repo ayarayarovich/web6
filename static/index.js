@@ -2,11 +2,11 @@ function calcWithAddons (initialPrice) {
     let cost = initialPrice
     let e_amount = document.querySelector("#calculator__amount")
 
-    const parsedAmount = parseFloat(e_amount.value)
+    const parsedAmount = Number(e_amount.value)
     let amount = Math.max((Number.isInteger(parsedAmount) && parsedAmount) || 0, 0)
     const e_checkedInputs = document.querySelectorAll("#calculatorForm input:checked")
     e_checkedInputs.forEach((e_checkedInput) => {
-        cost += parseInt(e_checkedInput.dataset.price)
+        cost += Number(e_checkedInput.dataset.price)
     })
     return cost * amount
 }
