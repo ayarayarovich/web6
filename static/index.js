@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const e_mealTypeSelector = document.querySelector("#calculator__meal");
     const e_bgCanvas = document.querySelector("#bg-canvas");
 
-    const menu = await (await fetch("/menu.json")).json();
+    const menu = await fetch("/menu.json").then(res => res.json());
 
     for (const [mealType, meal] of Object.entries(menu)) {
         e_mealTypeSelector.innerHTML += `<option value="${mealType}">${meal.description} - ${meal.price} руб.</option>`
